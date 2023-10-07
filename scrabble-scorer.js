@@ -34,6 +34,7 @@ function oldScrabbleScorer(word) {
 
 function initialPrompt() {
    console.log("Let's play some scrabble! Enter a word:");
+   
 };
 
 let simpleScorer;
@@ -45,6 +46,7 @@ let scrabbleScorer;
 const scoringAlgorithms = [];
 
 function scorerPrompt() {}
+console.log(oldScrabbleScorer)
 
 function transform() {};
 
