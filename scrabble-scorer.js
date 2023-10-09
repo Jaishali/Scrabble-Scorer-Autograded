@@ -69,7 +69,7 @@ function vowelBonusScorer(word) {
 //let newPointStructure = transform(oldPointStructure);
 function scrabbleScorer(word) {
    let score = 0;
-   word = word.toUpperCase();
+  word = word.toLowerCase();
    for (let i = 0; i < word.length; i++) {
      score += newPointStructure[word[i]];
    }  
@@ -79,21 +79,22 @@ function scrabbleScorer(word) {
 //let simpleScorer;
 
 //let vowelBonusScorer;
-const scoringAlgorithms = [
+const scoringAlgorithms = 
+[
    {
      name: "Simple Score",
      description: "Each letter is worth 1 point.",
-     scoreFunction: simpleScorer
+     scorerFunction: simpleScorer
    },
    {
      name: "Bonus Vowels",
      description: "Vowels are 3pts, consonants are 1 pt.",
-     scoreFunction: vowelBonusScorer
+     scorerFunction: vowelBonusScorer
    },
    {
      name: "Scrabble",
      description: "The traditional scoring algorithm.",
-     scoreFunction: scrabbleScorer
+     scorerFunction: scrabbleScorer
    },
  ];
  //scorerPrompt();
@@ -111,7 +112,7 @@ function scorerPrompt() {
     console.log(`${i} - ${scoringAlgorithms[i].name}: ${scoringAlgorithms[i].description}`) 
     }
     let scoreQuestion = Number(input.question(`\nEnter 0, 1, or 2: `)); 
-    console.log(`Score for '${testWord}': ${scoringAlgorithms[scoreQuestion].scoreFunction(testWord)}`) 
+    console.log(`Score for '${testWord}': ${scoringAlgorithms[scoreQuestion].scorerFunction(testWord)}`) 
   };
 
 
@@ -121,20 +122,20 @@ function transform(words)
    let newWordPoints = {};
    for (let newOrder in words) 
    {
-     let simple = words[newOrder]
-     for (let i = 0; i < simple.length; i++) 
+     let simpleWord = words[newOrder]
+     for (let i = 0; i < simpleWord.length; i++) 
      {
-       newWordPoints[simple[i].toUpperCase()] = Number(newOrder);
+       newWordPoints[simpleWord[i].toLowerCase()] = Number(newOrder);
      }
    }
  
    return newWordPoints;
  };
 
-let newPointStructure =[];
-newPointStructure = transform(oldPointStructure);
+//let newPointStructure ;
+let newPointStructure = transform(oldPointStructure);
 //scrabbleScorer("test");
-runProgram();
+//runProgram();
 function runProgram() 
 {
    initialPrompt();
