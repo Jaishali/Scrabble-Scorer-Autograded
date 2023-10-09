@@ -79,6 +79,7 @@ function scrabbleScorer(word) {
 //let simpleScorer;
 
 //let vowelBonusScorer;
+
 const scoringAlgorithms = 
 [
    {
