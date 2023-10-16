@@ -13,6 +13,7 @@ const oldPointStructure = {
 };
 
 //initialPrompt();
+//oldScrabbleScorer();
 //simpleScorer("javascript");
 //vowelBonusScorer(word);
 
@@ -105,7 +106,7 @@ const scoringAlgorithms =
       let Num= input.question('Enter the number : ');
       console.log("algorithm name: ", scoringAlgorithms[Num].name);
       console.log("scoringFunction result: ", scoringAlgorithms[Num].scoreFunction(word));
-}*/
+*/
 function scorerPrompt() {
    console.log(`\nWhich scoring algorithm would you like to use?`)
   for (let i = 0; i < scoringAlgorithms.length; i++)
@@ -114,7 +115,12 @@ function scorerPrompt() {
     }
     let scoreQuestion = Number(input.question(`\nEnter 0, 1, or 2: `)); 
     console.log(`Score for '${testWord}': ${scoringAlgorithms[scoreQuestion].scorerFunction(testWord)}`) 
+    scorerPrompt();
   };
+  
+  
+  
+
 
 
 //function transform() {};
@@ -136,7 +142,7 @@ function transform(words)
 //let newPointStructure ;
 let newPointStructure = transform(oldPointStructure);
 //scrabbleScorer("test");
-//runProgram();
+runProgram();
 function runProgram() 
 {
    initialPrompt();
